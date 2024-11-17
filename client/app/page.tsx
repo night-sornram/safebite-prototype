@@ -105,12 +105,7 @@ export default function Home() {
         </div>
         <div className=" w-full bg-custom-200 md:pt-5 lg:pt-10 flex flex-col md:flex-row"> 
           <div className=" w-full md:w-1/2 flex p-10 md:p-5 lg:p-10 xl:p-20">
-            <Image
-            src={"/images/illustration-stay-productive.png"}
-            width={615}
-            height={465}
-            className=" bg-contain"
-            alt="stay"/>
+            <iframe className="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?page-id=0%3A1&node-id=8-119&node-type=canvas&viewport=576%2C440%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A119&share=1&embed-host=share" allowFullScreen></iframe>
           </div>
           <div className="w-full px-10 md:px-0  md:w-1/2 flex space-y-3 lg:space-y-5 md:pr-10 lg:pr-20 flex-col justify-center">
             <div className=" text-white text-xl md:text-2xl lg:text-3xl xl:text-5xl font-raleway flex md:flex-col  md:space-y-1 lg:space-y-3 font-semibold ">
