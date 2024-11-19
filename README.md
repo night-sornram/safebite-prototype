@@ -2,6 +2,10 @@
 
 Create file .env in client folow .env.example
 
+npm run dev
+
+or 
+
 pnpm run dev
 
 # Server 
