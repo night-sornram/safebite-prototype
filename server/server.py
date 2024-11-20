@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 import easyocr
 
+
 load_dotenv()
 
 URI = os.getenv('URI')
@@ -13,6 +14,8 @@ PASSWORD = os.getenv('PASSWORD')
 
 app = Flask(__name__)
 CORS(app)
+
+
 
 
 class Transector:
@@ -69,7 +72,6 @@ class Transector:
 
     def close(self):
         self.driver.close()
-
 
 class NutritionLabelOCR:
     def __init__(self, nutrition_keywords=None):
@@ -142,6 +144,7 @@ def ocr_image():
     nutrition_words = ocr.process_image(image_path)
     return jsonify(nutrition_words)
 
+
 @app.route('/api/ingredients', methods=['GET'])
 def get_all_ingredients():
     ingredients = transector.get_all_ingredients()
@@ -155,7 +158,6 @@ def get_all_foods():
 @app.route('/api/food/ingredients', methods=['GET'])
 def get_ingredients_for_food():
     food_name = request.args.get('food_name')
-    print(food_name)
     ingredients = transector.get_ingredients_for_food(food_name)
     return jsonify(ingredients)
 

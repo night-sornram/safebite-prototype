@@ -13,7 +13,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Car, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
-import { featuresOne, featuresThree, featuresTwo } from "@/mock/features";
+import FeatureOne from "@/components/FeautureOne";
+import FeatureTwo from "@/components/FeatureTwo";
 
 export default function Home() {
   const [featureOne, setFeatureOne] = useState(0);
@@ -93,9 +94,8 @@ export default function Home() {
           <h1>Feature</h1>
         </section>
         <section className="col-span-12  bg-primary-50 pt-10">
-          <FeatureCard features={featuresOne} />
-          <FeatureCard features={featuresTwo} />
-          <FeatureCard features={featuresThree} />
+          <FeatureOne />
+          <FeatureTwo />
         </section>
 
         <section className=" col-span-full bg-primary-50  ">
