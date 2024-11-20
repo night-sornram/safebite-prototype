@@ -19,6 +19,8 @@ CORS(app)
 
 
 class Transector:
+
+    
     def __init__(self, uri, user, password):
         self.uri = uri
         self.user = user
@@ -26,9 +28,8 @@ class Transector:
         self.driver = GraphDatabase.driver(self.uri, auth=(self.user, self.password))
 
     def _execute_transaction(self, query, parameters=None):
-        with self.driver.session() as session:
-            result = session.run(query, parameters)
-            return [record for record in result]
+        result = self.driver.session().run(query, parameters)
+        return [record for record in result]
 
     def get_all_ingredients(self):
         query = """
@@ -174,4 +175,4 @@ def get_synonym_ingredients():
     return jsonify(synonyms)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=7687)
