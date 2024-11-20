@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ul[data-slot="listbox"] {
+  padding: 0px 10px;
+}

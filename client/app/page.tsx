@@ -8,6 +8,7 @@ import {
   CardHeader,
   Divider,
   Image,
+  useDisclosure,
 } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Car, ChevronLeft, ChevronRight } from "lucide-react";
@@ -15,36 +16,31 @@ import { useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import FeatureOne from "@/components/FeautureOne";
 import FeatureTwo from "@/components/FeatureTwo";
+import {
+  cards,
+  featuresOne,
+  featuresThree,
+  featuresTwo,
+} from "@/mock/features";
+import ModalFeature from "@/components/ModalFeature";
 
 export default function Home() {
-  const [featureOne, setFeatureOne] = useState(0);
-  const cards = [
-    {
-      title: "title 1",
-      description: "description 1",
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      title: "title 2",
-      description: "description 2",
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      title: "title 3",
-      description: "description 3",
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      title: "title 4",
-      description: "description 4",
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-  ];
+  const features = Array(featuresOne, featuresTwo, featuresThree);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const [feat, setFeat] = useState(0);
+
+  const handleFeature = (index: number) => {
+    setFeat(index);
+  };
 
   return (
     <main className=" mx-auto grid w-screen grid-cols-12 gap-5 sm:gap-y-7 ">
       <section className="col-span-12 bg-primary-50">
-        <div className="sm:max-w-screen-lg h-screen grid grid-cols-1 sm:grid-cols-2 mx-auto gap-2 sm:gap-4 ">
+        <div
+          id="intro"
+          className="sm:max-w-screen-lg h-screen grid grid-cols-1 sm:grid-cols-2 mx-auto gap-2 sm:gap-4 "
+        >
           <div className="flex flex-col gap-4 justify-center items-center  ">
             <Image
               src="/images/illustration-intro.png"
@@ -73,6 +69,12 @@ export default function Home() {
         </div>
 
         <div className="sm:max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div
+            id="advantage"
+            className="col-span-full flex justify-center items-center sm:pb-7 pb-4"
+          >
+            <h1>Advantage</h1>
+          </div>
           {cards.map((card, idx) => (
             <div key={idx} className="w-full flex items-center justify-center">
               <Card className="py-4 w-10/12">
@@ -90,16 +92,34 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <section className="col-span-full flex pt-12 justify-center items-center">
+        <section
+          id="feature"
+          className="col-span-full flex pt-12 justify-center items-center"
+        >
           <h1>Feature</h1>
         </section>
         <section className="col-span-12  bg-primary-50 pt-10">
-          <FeatureOne />
-          <FeatureTwo />
+          {features.map((feature, index) => (
+            <FeatureCard
+              features={feature}
+              idx={index}
+              openModal={onOpen}
+              handleFeature={() => handleFeature(index)}
+              key={index}
+            />
+          ))}
         </section>
+        <ModalFeature
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          index={feat}
+        />
 
         <section className=" col-span-full bg-primary-50  ">
-          <div className="col-span-full flex justify-center items-center pb-12">
+          <div
+            id="product"
+            className="col-span-full flex justify-center items-center pb-12"
+          >
             <h1>Our Product</h1>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:max-w-screen-lg mx-auto gap-7">
@@ -108,7 +128,7 @@ export default function Home() {
                 <iframe
                   className="rounded-xl bg-inherit"
                   height={500}
-                  src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?page-id=0%3A1&node-id=8-119&node-type=canvas&viewport=576%2C440%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A119&share=1&embed-host=share"
+                  // src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?page-id=0%3A1&node-id=8-119&node-type=canvas&viewport=576%2C440%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A119&share=1&embed-host=share"
                   allowFullScreen
                 ></iframe>
               </Card>

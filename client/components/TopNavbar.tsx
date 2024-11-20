@@ -27,18 +27,23 @@ export default function TopNavbar() {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="#intro">
             Intro
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="#advantage">
             Advantage
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="#feature">
             Features
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#product">
+            Product
           </Link>
         </NavbarItem>
       </NavbarContent>
