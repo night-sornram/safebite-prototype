@@ -58,7 +58,11 @@ export default function ModalFeatureOne() {
                 </AutocompleteItem>
               ))}
             </Autocomplete>
-            <Button variant="solid" color="primary" onPress={handleSubmit}>
+            <Button
+              variant="solid"
+              className="bg-gradient-to-r text-white from-primary-500 to-primary-400"
+              onPress={handleSubmit}
+            >
               Search
             </Button>
           </div>

@@ -14,11 +14,17 @@ import { useState } from "react";
 export default function Navbar() {
   return (
     <Card
-      className="col-span-full bg-primary-50 sm:p-20 p-10"
+      className="col-span-full bg-gradient-to-l from-primary-500 to-slate-100 sm:to-white sm:p-20 p-10"
       shadow="none"
       isBlurred
     >
-      <div className="grid grid-cols-1 sm:grid-cols-5 max-w-screen-lg sm:max-w-screen-xl mx-auto gap-5">
+      <div className="flex items-center gap-2">
+        <Image src={"/safebite-logo.svg"} width={60} height={52} alt="logo" />
+        <h2 className="font-extrabold">
+          <span className="text-blue-600">Safe</span>bite
+        </h2>
+      </div>
+      <div className=" grid-cols-1 hidden sm:grid-cols-5 max-w-screen-lg sm:max-w-screen-xl mx-auto gap-5">
         <div className="col-span-full justify-start sm:pb-10">
           <div className="flex items-center gap-2">
             <Image
@@ -52,27 +58,27 @@ export default function Navbar() {
           </div>
         </div>
         <div className="  col-span-1 gap-5 flex flex-col">
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             <h5>About Us</h5>
           </Link>
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             <h5>Jobs</h5>
           </Link>
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             <h5>Press</h5>
           </Link>
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             <h5>Blog</h5>
           </Link>
         </div>
         <div className=" col-span-1 flex gap-5 flex-col">
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             Contact Us
           </Link>
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             Term
           </Link>
-          <Link href={"#"} className="hover:underline text-gray-400">
+          <Link href={"#"} className="hover:underline text-slate-600">
             Policy
           </Link>
         </div>

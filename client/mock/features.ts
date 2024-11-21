@@ -1,10 +1,10 @@
 export const featuresOne = {
   title: "Knowledge Graph",
   description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "A knowledge graph (KG) is a system that stores information as a network of connected ideas or things, helping computers understand relationships between them to provide useful insights.",
   images: [
     {
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
+      image: "/knowledge_graph.png",
     },
     {
       image:
@@ -23,10 +23,10 @@ export const featuresOne = {
 export const featuresTwo = {
   title: "OCR",
   description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "OCR (Optical Character Recognition) is a technology that converts different types of documents, such as scanned paper or images, into editable and searchable text by recognizing the characters in the images.",
   images: [
     {
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
+      image: "/ocr.png",
     },
     {
       image:
@@ -43,12 +43,12 @@ export const featuresTwo = {
   ],
 };
 export const featuresThree = {
-  title: "Feature three",
+  title: "Food classification",
   description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "Food classification using few-shot learning is a way for a computer to recognize and sort food with only a few examples of each type. This helps the model learn new foods without needing a lot of pictures or data.",
   images: [
     {
-      image: "https://nextui.org/images/hero-card-complete.jpeg",
+      image: "/food-classify.png",
     },
     {
       image:
@@ -67,20 +67,23 @@ export const featuresThree = {
 
 export const cards = [
   {
-    title: "title 1",
-    description: "description 1",
-    image: "https://nextui.org/images/hero-card-complete.jpeg",
+    title: "Safe Food Choices",
+    description:
+      "The app helps you find safe meals and restaurants based on your food allergies, so you can eat with confidence.",
+    image: "/good-foods.jpeg",
   },
   {
-    title: "title 2",
-    description: "description 2",
-    image: "https://nextui.org/images/hero-card-complete.jpeg",
+    title: "Track Your Meals",
+    description:
+      "Easily track your meals, making it simple to share with doctors if you're sick or have an allergic reaction.",
+    image: "/tracking_food.png",
   },
-  // {
-  //   title: "title 3",
-  //   description: "description 3",
-  //   image: "https://nextui.org/images/hero-card-complete.jpeg",
-  // },
+  {
+    title: "Talk to Dietitians",
+    description:
+      "The app lets you chat with dietitians for expert advice on your meals and health, helping you make better food choices.",
+    image: "/dietitian.png",
+  },
   // {
   //   title: "title 4",
   //   description: "description 4",

@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <main className=" mx-auto grid w-screen grid-cols-12 gap-5 sm:gap-y-7 ">
       <motion.section
-        className="col-span-12 bg-primary-50"
+        className="col-span-12 bg-gradient-to-l from-primary-500 to-slate-100 sm:to-white "
         ref={ref}
         initial="hidden"
         animate={controls}
@@ -62,10 +62,7 @@ export default function Home() {
           className="sm:max-w-screen-lg h-screen grid grid-cols-1 sm:grid-cols-2 mx-auto gap-2 sm:gap-4 "
         >
           <div className="flex flex-col gap-4 justify-center items-center  ">
-            <Image
-              src="/images/illustration-intro.png"
-              className="w-auto h-auto "
-            />
+            <Image src="/intro-image.png" className="w-auto h-auto " />
           </div>
           <div className="flex justify-center sm:items-center items-start">
             <Card
@@ -77,11 +74,10 @@ export default function Home() {
                   <span className="text-blue-600">Safe</span>bite
                 </h1>
                 <h5 className="text-justify">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
+                  Empowering your health and dining choices—our app offers
+                  personalized food advices for allergy management, tracks your
+                  meals for better care, and connects you with expert dietitians
+                  and all in one seamless experience.
                 </h5>
               </div>
             </Card>
@@ -89,7 +85,7 @@ export default function Home() {
         </div>
 
         <motion.div
-          className="sm:max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4"
+          className="sm:max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -97,7 +93,7 @@ export default function Home() {
         >
           <div
             id="advantage"
-            className="col-span-full flex justify-center items-center sm:pb-7 pb-4"
+            className="col-span-full flex justify-center items-center sm:pt-36 sm:pb-7 pb-4"
           >
             <h1>Benefit</h1>
           </div>
@@ -120,15 +116,24 @@ export default function Home() {
                 variants={sectionVariants}
               >
                 <Card className="py-4 w-10/12">
-                  <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                    <h3>{card.title}</h3>
-                    <h5 className="text-justify">{card.description}</h5>
+                  <CardHeader className="pb-0 pt-2 px-4 flex-col items-start gap-2">
+                    <div>
+                      <h3 className="font-bold">{card.title}</h3>
+                    </div>
+                    <div>
+                      <p className="text-justify leading-tight">
+                        {card.description}
+                      </p>
+                    </div>
                   </CardHeader>
-                  <CardBody className="overflow-visible py-2">
-                    <Image
-                      className="object-contain rounded-xl"
-                      src={card.image}
-                    />
+                  <CardBody className="overflow-visible  py-2 ">
+                    <div className="w-full flex justify-center">
+                      <Image
+                        className="object-cover  rounded-xl"
+                        src={card.image}
+                        height={300}
+                      />
+                    </div>
                   </CardBody>
                 </Card>
               </motion.div>
@@ -137,11 +142,11 @@ export default function Home() {
         </motion.div>
         <section
           id="feature"
-          className="col-span-full flex pt-12 justify-center items-center"
+          className="col-span-full flex pt-12 sm:pt-36 justify-center items-center"
         >
           <h1>Feature</h1>
         </section>
-        <section className="col-span-12  bg-primary-50 pt-10">
+        <section className="col-span-12  bg-gradient-to-l from-primary-500 to-slate-100 sm:to-white pt-10">
           {features.map((feature, index) => (
             <FeatureCard
               features={feature}
@@ -158,10 +163,10 @@ export default function Home() {
           index={feat}
         />
 
-        <section className=" col-span-full bg-primary-50  ">
+        <section className=" col-span-full bg-gradient-to-l from-primary-500 to-slate-100 sm:to-white  ">
           <div
             id="product"
-            className="col-span-full flex justify-center items-center pb-12"
+            className="col-span-full flex justify-center items-center pb-12 sm:pt-36"
           >
             <h1>Our Product</h1>
           </div>
@@ -171,7 +176,7 @@ export default function Home() {
                 <iframe
                   className="rounded-xl bg-inherit"
                   height={500}
-                  // src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?page-id=0%3A1&node-id=8-119&node-type=canvas&viewport=576%2C440%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A119&share=1&embed-host=share"
+                  src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?page-id=0%3A1&node-id=8-119&node-type=canvas&viewport=576%2C440%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A119&share=1&embed-host=share"
                   allowFullScreen
                 ></iframe>
               </Card>
@@ -182,11 +187,13 @@ export default function Home() {
                 <span className="font-semibold">Application</span>
               </h2>
               <h5 className="text-justify">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s
+                Try our app that helps you find safe food options and make
+                better meal choices if you have allergies. It has cool features
+                like food scanning and personalized recommendations to make
+                things easier. Give it a try and see how it can help you take
+                control of your diet and health!
               </h5>
-              <div className="col-span-full h-full flex items-end">
+              <div className="col-span-full h-full  items-end hidden">
                 <div className=" grid grid-cols-2 h-20 ">
                   <div className="col-span-1 flex justify-center items-center">
                     <Link href="#">

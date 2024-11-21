@@ -38,7 +38,11 @@ export default function FeatureCard(prop: Props) {
       }`}
     >
       <div className=" flex flex-row justify-center items-center w-full sm:w-1/2">
-        <Card className=" bg-white shadow-md w-10/12" shadow="none">
+        <Card
+          isBlurred
+          className=" shadow-md w-10/12 bg-gradient-to-tr from-primary-50 to-blue-100"
+          shadow="none"
+        >
           <Image
             src={
               prop.features.images[
@@ -46,7 +50,7 @@ export default function FeatureCard(prop: Props) {
               ].image
             }
             height={300}
-            className="object-cover"
+            className="object-contain"
           />
         </Card>
       </div>
@@ -57,13 +61,14 @@ export default function FeatureCard(prop: Props) {
           <Button
             variant="shadow"
             radius="lg"
-            className="bg-slate-400 text-white"
+            className="from-slate-500 to-slate-400 bg-gradient-to-r text-white"
+            isDisabled={prop.idx === 2}
             onPress={() => {
               prop.openModal();
               prop.handleFeature();
             }}
           >
-            <h3>Try it</h3>
+            <h3>{prop.idx === 2 ? "Not done yet" : "Try it"}</h3>
           </Button>
         </div>
       </div>

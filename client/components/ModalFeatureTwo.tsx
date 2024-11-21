@@ -62,7 +62,7 @@ export default function ModalFeatureTwo() {
             </Select>
             <Button
               variant="solid"
-              color="primary"
+              className="bg-gradient-to-r text-white from-primary-500 to-primary-400"
               onPress={() => {
                 handleOCR(selectedImage);
               }}

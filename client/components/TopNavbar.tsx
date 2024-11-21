@@ -48,10 +48,10 @@ export default function TopNavbar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+        <NavbarItem className="hidden">
           <Link href="#">Login</Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden">
           <Button as={Link} color="default" href="#" variant="flat">
             <h5>Sign Up</h5>
           </Button>
