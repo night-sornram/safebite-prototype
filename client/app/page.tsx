@@ -62,7 +62,11 @@ export default function Home() {
           className="sm:max-w-screen-lg h-screen grid grid-cols-1 sm:grid-cols-2 mx-auto gap-2 sm:gap-4 "
         >
           <div className="flex flex-col gap-4 justify-center items-center  ">
-            <Image src="/intro-image.png" className="w-auto h-auto " />
+            <Image
+              removeWrapper
+              src="/intro-image.png"
+              className="w-auto h-auto "
+            />
           </div>
           <div className="flex justify-center sm:items-center items-start">
             <Card
