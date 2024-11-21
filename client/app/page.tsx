@@ -176,7 +176,7 @@ export default function Home() {
                 <iframe
                   className="rounded-xl bg-inherit"
                   height={500}
-                  src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?page-id=0%3A1&node-id=8-119&node-type=canvas&viewport=576%2C440%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A119&share=1&embed-host=share"
+                  src="https://embed.figma.com/proto/kSAkgdSmWbP2bSLAejgVNW/Safebite?node-id=62-712&node-type=symbol&scaling=scale-down&content-scaling=fixed&page-id=62%3A710&starting-point-node-id=62%3A712&embed-host=share"
                   allowFullScreen
                 ></iframe>
               </Card>
