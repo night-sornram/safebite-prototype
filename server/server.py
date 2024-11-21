@@ -3,10 +3,8 @@ from flask_cors import CORS
 from neo4j import GraphDatabase
 from dotenv import load_dotenv
 import os
-import easyocr
-import cv2
-import numpy as np
-
+# import easyocr
+# import cv2
 
 load_dotenv()
 
@@ -76,64 +74,66 @@ class Transector:
     def close(self):
         self.driver.close()
 
-class NutritionLabelOCR:
-    def __init__(self):
-        self.nutrition_keywords = [
-            "calories", "protein", "carbohydrates", "sugar", "fat",
-            "saturated fat", "trans fat", "fiber", "cholesterol", "sodium",
-            "vitamin", "calcium", "iron", "potassium", "dietary fiber",
-            "total fat", "monounsaturated fat", "polyunsaturated fat",
-            "omega-3", "omega-6", "omega-9", "vitamin A", "vitamin B1",
-            "vitamin B2", "vitamin B3", "vitamin B5", "vitamin B6",
-            "vitamin B7", "vitamin B9", "vitamin B12", "vitamin C",
-            "vitamin D", "vitamin E", "vitamin K", "magnesium", "phosphorus",
-            "zinc", "selenium", "copper", "manganese", "fluoride", "iodine",
-            "chromium", "molybdenum", "chloride", "biotin", "folate",
-            "pantothenic acid", "riboflavin", "niacin", "thiamin",
-            "pyridoxine", "cobalamin", "choline", "inositol", "carnitine",
-            "glucose", "fructose", "lactose", "maltose", "sucrose",
-            "starch", "glycogen", "dietary fiber", "soluble fiber",
-            "insoluble fiber", "alcohol", "caffeine", "water", "ash",
-            "energy", "polyols", "erythritol", "xylitol", "sorbitol",
-            "mannitol", "isomalt", "lactitol", "maltitol", "hydrolyzed protein",
-            "casein", "whey protein", "soy protein", "pea protein",
-            "rice protein", "hemp protein", "collagen", "gelatin",
-            "glutamine", "creatine", "beta-alanine", "citrulline",
-            "taurine", "arginine", "leucine", "isoleucine", "valine",
-            "methionine", "phenylalanine", "threonine", "tryptophan",
-            "histidine", "lysine", "alanine", "asparagine", "aspartic acid",
-            "cysteine", "glutamic acid", "glycine", "proline", "serine",
-            "tyrosine", 'reduce fat milk', 'skim milk', 'whole milk', 'salt', 'carbohydrate'
-        ]
-        self.reader = easyocr.Reader(['en'], gpu=False)  # Disable GPU to save resources
 
-    def extract_text(self, image_path):
-        processed_image = image_path
-        # EasyOCR expects image paths directly or numpy arrays
-        results = self.reader.readtext(processed_image, detail=0)
-        return "\n".join(results)
+# Can't deploy this OCR code on Render because it limit resources for free tier
+# class NutritionLabelOCR:
+#     def __init__(self):
+#         self.nutrition_keywords = [
+#             "calories", "protein", "carbohydrates", "sugar", "fat",
+#             "saturated fat", "trans fat", "fiber", "cholesterol", "sodium",
+#             "vitamin", "calcium", "iron", "potassium", "dietary fiber",
+#             "total fat", "monounsaturated fat", "polyunsaturated fat",
+#             "omega-3", "omega-6", "omega-9", "vitamin A", "vitamin B1",
+#             "vitamin B2", "vitamin B3", "vitamin B5", "vitamin B6",
+#             "vitamin B7", "vitamin B9", "vitamin B12", "vitamin C",
+#             "vitamin D", "vitamin E", "vitamin K", "magnesium", "phosphorus",
+#             "zinc", "selenium", "copper", "manganese", "fluoride", "iodine",
+#             "chromium", "molybdenum", "chloride", "biotin", "folate",
+#             "pantothenic acid", "riboflavin", "niacin", "thiamin",
+#             "pyridoxine", "cobalamin", "choline", "inositol", "carnitine",
+#             "glucose", "fructose", "lactose", "maltose", "sucrose",
+#             "starch", "glycogen", "dietary fiber", "soluble fiber",
+#             "insoluble fiber", "alcohol", "caffeine", "water", "ash",
+#             "energy", "polyols", "erythritol", "xylitol", "sorbitol",
+#             "mannitol", "isomalt", "lactitol", "maltitol", "hydrolyzed protein",
+#             "casein", "whey protein", "soy protein", "pea protein",
+#             "rice protein", "hemp protein", "collagen", "gelatin",
+#             "glutamine", "creatine", "beta-alanine", "citrulline",
+#             "taurine", "arginine", "leucine", "isoleucine", "valine",
+#             "methionine", "phenylalanine", "threonine", "tryptophan",
+#             "histidine", "lysine", "alanine", "asparagine", "aspartic acid",
+#             "cysteine", "glutamic acid", "glycine", "proline", "serine",
+#             "tyrosine", 'reduce fat milk', 'skim milk', 'whole milk', 'salt', 'carbohydrate'
+#         ]
+#         self.reader = easyocr.Reader(['en'], gpu=False)  # Disable GPU to save resources
 
-    # This function is used to filter out only the nutrition-related words from the OCR result.
-    def get_nutrition_words(self, text):
-        words_found = []
-        for keyword in self.nutrition_keywords:
-            if keyword in text.lower():
-                words_found.append(keyword)
-        return list(set(words_found))  
+#     def extract_text(self, image_path):
+#         processed_image = image_path
+#         # EasyOCR expects image paths directly or numpy arrays
+#         results = self.reader.readtext(processed_image, detail=0)
+#         return "\n".join(results)
 
-    # This function is used to process the image and return only the nutrition words found.
-    def process_image(self, image_path):
-        raw_text = self.extract_text(image_path)
-        return self.get_nutrition_words(raw_text)
+#     # This function is used to filter out only the nutrition-related words from the OCR result.
+#     def get_nutrition_words(self, text):
+#         words_found = []
+#         for keyword in self.nutrition_keywords:
+#             if keyword in text.lower():
+#                 words_found.append(keyword)
+#         return list(set(words_found))  
+
+#     # This function is used to process the image and return only the nutrition words found.
+#     def process_image(self, image_path):
+#         raw_text = self.extract_text(image_path)
+#         return self.get_nutrition_words(raw_text)
     
 transector = Transector(uri=URI, user=USER, password=PASSWORD)
-ocr = NutritionLabelOCR()
+# ocr = NutritionLabelOCR()
 
-@app.route('/api/ocr', methods=['GET'])
-def ocr_image():
-    image_path = request.args.get('image_path')
-    nutrition_words = ocr.process_image(image_path)
-    return jsonify(nutrition_words)
+# @app.route('/api/ocr', methods=['GET'])
+# def ocr_image():
+#     image_path = request.args.get('image_path')
+#     nutrition_words = ocr.process_image(image_path)
+#     return jsonify(nutrition_words)
 
 
 @app.route('/api/ingredients', methods=['GET'])

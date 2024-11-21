@@ -26,20 +26,81 @@ export default function ModalFeatureTwo() {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const options = [
-    { key: "n1.jpg", label: "n1.jpg" },
-    { key: "n2.png", label: "n2.png" },
-    { key: "n3.jpg", label: "n3.jpg" },
-    { key: "n4.webp", label: "n4.webp" },
+    {
+      key: "n1.jpg",
+      label: "n1.jpg",
+      value: [
+        "fat",
+        "trans fat",
+        "sugar",
+        "fiber",
+        "calcium",
+        "saturated fat",
+        "thiamin",
+        "calories",
+        "vitamin",
+        "iron",
+        "total fat",
+        "cholesterol",
+        "carbohydrate",
+      ],
+    },
+    {
+      key: "n2.png",
+      label: "n2.png",
+      value: [
+        "potassium",
+        "fat",
+        "iron",
+        "trans fat",
+        "sugar",
+        "fiber",
+        "calcium",
+        "sodium",
+        "saturated fat",
+        "dietary fiber",
+        "calories",
+        "vitamin",
+        "protein",
+        "total fat",
+        "carbohydrate",
+      ],
+    },
+    {
+      key: "n3.jpg",
+      label: "n3.jpg",
+      value: ["fat", "sugar", "salt", "energy", "protein", "carbohydrate"],
+    },
+    {
+      key: "n4.webp",
+      label: "n4.webp",
+      value: [
+        "potassium",
+        "fat",
+        "sugar",
+        "calcium",
+        "sodium",
+        "calories",
+        "protein",
+        "total fat",
+        "carbohydrate",
+      ],
+    },
   ];
 
   const handleOCR = async (image: string) => {
     setIsClicked(true);
     setData([]);
     setIsLoading(true);
-    await getOCR(image).then((res) => {
-      setData(res);
+    setTimeout(() => {
       setIsLoading(false);
-    });
+      setData(options.find((option) => option.key === selectedImage)?.value || []);
+    }, 2000);
+    // Can't fetch data because can't deploy ocr model on free version of render
+    // await getOCR(image).then((res) => {
+    //   setData(res);
+    //   setIsLoading(false);
+    // });
   };
 
   return (

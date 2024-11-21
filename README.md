@@ -1,3 +1,10 @@
+# Important
+
+Can't connect data with backend because can't deploy ocr model on free version of render.
+
+We use mockData from process ocr image.
+
+
 # Client
 
 Create file .env in client folow .env.example
@@ -14,7 +21,7 @@ cd .\server\
 
 python -m venv venv
 
-./venv/Scripts/activate
+.\venv\Scripts\activate
 
 pip install -r requirements.txt
 
