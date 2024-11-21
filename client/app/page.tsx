@@ -1,18 +1,19 @@
 "use client";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import {
   Button,
   Card,
+  Link,
   CardBody,
   CardHeader,
   Divider,
   Image,
   useDisclosure,
 } from "@nextui-org/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { Car, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeatureCard from "@/components/FeatureCard";
 import FeatureOne from "@/components/FeautureOne";
 import FeatureTwo from "@/components/FeatureTwo";
@@ -27,16 +28,35 @@ import ModalFeature from "@/components/ModalFeature";
 export default function Home() {
   const features = Array(featuresOne, featuresTwo, featuresThree);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
   const [feat, setFeat] = useState(0);
 
   const handleFeature = (index: number) => {
     setFeat(index);
   };
 
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <main className=" mx-auto grid w-screen grid-cols-12 gap-5 sm:gap-y-7 ">
-      <section className="col-span-12 bg-primary-50">
+      <motion.section
+        className="col-span-12 bg-primary-50"
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={sectionVariants}
+      >
         <div
           id="intro"
           className="sm:max-w-screen-lg h-screen grid grid-cols-1 sm:grid-cols-2 mx-auto gap-2 sm:gap-4 "
@@ -68,30 +88,53 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="sm:max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <motion.div
+          className="sm:max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4"
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={sectionVariants}
+        >
           <div
             id="advantage"
             className="col-span-full flex justify-center items-center sm:pb-7 pb-4"
           >
-            <h1>Advantage</h1>
+            <h1>Benefit</h1>
           </div>
-          {cards.map((card, idx) => (
-            <div key={idx} className="w-full flex items-center justify-center">
-              <Card className="py-4 w-10/12">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h3>{card.title}</h3>
-                  <h5 className="text-justify">{card.description}</h5>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    className="object-contain rounded-xl"
-                    src={card.image}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-          ))}
-        </div>
+          {cards.map((card, idx) => {
+            const controls = useAnimation();
+            const [ref, inView] = useInView({ triggerOnce: true });
+
+            useEffect(() => {
+              if (inView) {
+                controls.start("visible");
+              }
+            }, [controls, inView]);
+            return (
+              <motion.div
+                key={idx}
+                className="w-full flex items-center justify-center"
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={sectionVariants}
+              >
+                <Card className="py-4 w-10/12">
+                  <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                    <h3>{card.title}</h3>
+                    <h5 className="text-justify">{card.description}</h5>
+                  </CardHeader>
+                  <CardBody className="overflow-visible py-2">
+                    <Image
+                      className="object-contain rounded-xl"
+                      src={card.image}
+                    />
+                  </CardBody>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </motion.div>
         <section
           id="feature"
           className="col-span-full flex pt-12 justify-center items-center"
@@ -162,7 +205,7 @@ export default function Home() {
         </section>
 
         <Navbar />
-      </section>
+      </motion.section>
     </main>
   );
 }

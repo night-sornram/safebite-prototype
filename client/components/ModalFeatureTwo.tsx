@@ -48,7 +48,7 @@ export default function ModalFeatureTwo() {
         <h2>Feature : OCR</h2>
       </ModalHeader>
       <ModalBody>
-        <div className=" w-full flex flex-col gap-4 h-80">
+        <div className=" w-full flex flex-col gap-4">
           <div className=" w-full flex flex-row gap-2">
             <Select
               variant="faded"
@@ -70,14 +70,14 @@ export default function ModalFeatureTwo() {
               OCR
             </Button>
           </div>
+          {selectedImage !== "" && (
+            <div className="  w-full grid grid-cols-2 gap-2">
+              <div className="col-span-1 flex w-full h-52">
+                <Image src={`/images/${selectedImage}`} />
+              </div>
 
-          <div className="  w-full grid grid-cols-2 gap-2 h-60">
-            <div className="col-span-1 flex w-full">
-              <Image src={`/images/${selectedImage}`} />
-            </div>
-            {isClicked && (
               <div className="col-span-1 flex w-full">
-                <Table isStriped className="overflow-y-auto">
+                <Table isStriped className="h-52">
                   <TableHeader>
                     <TableColumn style={{ paddingLeft: "10px" }}>
                       Ingredients
@@ -99,8 +99,8 @@ export default function ModalFeatureTwo() {
                   </TableBody>
                 </Table>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </ModalBody>
       <ModalFooter></ModalFooter>

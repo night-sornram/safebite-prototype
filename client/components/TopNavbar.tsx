@@ -33,7 +33,7 @@ export default function TopNavbar() {
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#advantage">
-            Advantage
+            Benefit
           </Link>
         </NavbarItem>
         <NavbarItem>

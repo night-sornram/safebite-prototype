@@ -1,5 +1,5 @@
 export const featuresOne = {
-  title: "Feature one",
+  title: "Knowledge Graph",
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
   images: [
@@ -21,7 +21,7 @@ export const featuresOne = {
   ],
 };
 export const featuresTwo = {
-  title: "Feature two",
+  title: "OCR",
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
   images: [
@@ -76,14 +76,14 @@ export const cards = [
     description: "description 2",
     image: "https://nextui.org/images/hero-card-complete.jpeg",
   },
-  {
-    title: "title 3",
-    description: "description 3",
-    image: "https://nextui.org/images/hero-card-complete.jpeg",
-  },
-  {
-    title: "title 4",
-    description: "description 4",
-    image: "https://nextui.org/images/hero-card-complete.jpeg",
-  },
+  // {
+  //   title: "title 3",
+  //   description: "description 3",
+  //   image: "https://nextui.org/images/hero-card-complete.jpeg",
+  // },
+  // {
+  //   title: "title 4",
+  //   description: "description 4",
+  //   image: "https://nextui.org/images/hero-card-complete.jpeg",
+  // },
 ];

@@ -6,3 +6,7 @@
 ul[data-slot="listbox"] {
   padding: 0px 10px;
 }
+
+ul[data-slot="list"] {
+  padding: 0px 10px;
+}
