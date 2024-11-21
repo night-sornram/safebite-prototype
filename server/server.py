@@ -4,6 +4,8 @@ from neo4j import GraphDatabase
 from dotenv import load_dotenv
 import os
 import easyocr
+import cv2
+import numpy as np
 
 
 load_dotenv()
@@ -75,10 +77,8 @@ class Transector:
         self.driver.close()
 
 class NutritionLabelOCR:
-    def __init__(self, nutrition_keywords=None):
-        # Default keywords if not provided
-        # It would be better to provide as many nutrition-related keywords as possible
-        self.nutrition_keywords = nutrition_keywords or [
+    def __init__(self):
+        self.nutrition_keywords = [
             "calories", "protein", "carbohydrates", "sugar", "fat",
             "saturated fat", "trans fat", "fiber", "cholesterol", "sodium",
             "vitamin", "calcium", "iron", "potassium", "dietary fiber",
@@ -105,17 +105,8 @@ class NutritionLabelOCR:
             "cysteine", "glutamic acid", "glycine", "proline", "serine",
             "tyrosine", 'reduce fat milk', 'skim milk', 'whole milk', 'salt', 'carbohydrate'
         ]
-        # Initialize EasyOCR Reader with English language
-        self.reader = easyocr.Reader(['en']) 
+        self.reader = easyocr.Reader(['en'], gpu=False)  # Disable GPU to save resources
 
-    # This function suppose to make better OCR accuracy. but in this case, it's not necessary and it gets worse results.
-    # def preprocess_image(self, image_path):
-    #     image = cv2.imread(image_path)
-    #     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    #     _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
-    #     return thresh
-
-    # This function is used to extract text from the image using EasyOCR.
     def extract_text(self, image_path):
         processed_image = image_path
         # EasyOCR expects image paths directly or numpy arrays
@@ -133,7 +124,6 @@ class NutritionLabelOCR:
     # This function is used to process the image and return only the nutrition words found.
     def process_image(self, image_path):
         raw_text = self.extract_text(image_path)
-        print(f"Raw Text Found:{raw_text}")
         return self.get_nutrition_words(raw_text)
     
 transector = Transector(uri=URI, user=USER, password=PASSWORD)
