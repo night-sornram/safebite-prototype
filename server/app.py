@@ -165,4 +165,4 @@ def get_synonym_ingredients():
     return jsonify(synonyms)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=7687)
+    app.run()
