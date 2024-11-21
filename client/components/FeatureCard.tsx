@@ -1,5 +1,5 @@
 import { FeatureProps } from "@/types/feature";
-import { Button, Card, Image } from "@nextui-org/react";
+import { Button, Card, Image, Link } from "@nextui-org/react";
 import { useAnimation, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -56,8 +56,14 @@ export default function FeatureCard(prop: Props) {
       </div>
       <div className="flex flex-col w-full sm:w-1/2 max-sm:pt-0 p-10  gap-3">
         <h2>{prop.features.title}</h2>
-        <h5 className="text-justify">{prop.features.description}</h5>
-        <div className="flex flex-row pt-6 ">
+        <div className="flex flex-col">
+          <h5 className="text-justify">{prop.features.description}</h5>
+          <h5 className="text-xs opacity-60">
+            (mock data from experimental results in Github)
+          </h5>
+        </div>
+
+        <div className="flex flex-row pt-6  gap-4">
           <Button
             variant="shadow"
             radius="lg"
@@ -70,6 +76,18 @@ export default function FeatureCard(prop: Props) {
           >
             <h3>{prop.idx === 2 ? "Not done yet" : "Try it"}</h3>
           </Button>
+          {prop.features.github_link !== "" && (
+            <Link
+              isExternal
+              underline="always"
+              className="text-blue-600"
+              href={prop.features.github_link}
+            >
+              <Button variant="light" radius="lg" className="text-blue-600">
+                <h5>Github</h5>
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </motion.div>

@@ -6,19 +6,8 @@ export const featuresOne = {
     {
       image: "/knowledge_graph.png",
     },
-    {
-      image:
-        "https://static.vecteezy.com/system/resources/previews/026/423/630/non_2x/realistic-pizzagraphy-with-cheese-parsley-and-pepperoni-with-park-background-generated-by-ai-free-photo.jpg",
-    },
-    {
-      image:
-        "https://4kwallpapers.com/images/wallpapers/your-name-shooting-3840x2160-14938.jpg",
-    },
-    {
-      image:
-        "https://app.requestly.io/delay/1000/https://nextui.org/images/fruit-4.jpeg",
-    },
   ],
+  github_link: "https://github.com/VeerapatSintupong123/safebite-KG",
 };
 export const featuresTwo = {
   title: "OCR",
@@ -28,19 +17,8 @@ export const featuresTwo = {
     {
       image: "/ocr.png",
     },
-    {
-      image:
-        "https://static.vecteezy.com/system/resources/previews/026/423/630/non_2x/realistic-pizzagraphy-with-cheese-parsley-and-pepperoni-with-park-background-generated-by-ai-free-photo.jpg",
-    },
-    {
-      image:
-        "https://4kwallpapers.com/images/wallpapers/your-name-shooting-3840x2160-14938.jpg",
-    },
-    {
-      image:
-        "https://app.requestly.io/delay/1000/https://nextui.org/images/fruit-4.jpeg",
-    },
   ],
+  github_link: "https://github.com/Haseef2005/safe-bite_ocr.git",
 };
 export const featuresThree = {
   title: "Food classification",
@@ -50,19 +28,8 @@ export const featuresThree = {
     {
       image: "/food-classify.png",
     },
-    {
-      image:
-        "https://static.vecteezy.com/system/resources/previews/026/423/630/non_2x/realistic-pizzagraphy-with-cheese-parsley-and-pepperoni-with-park-background-generated-by-ai-free-photo.jpg",
-    },
-    {
-      image:
-        "https://4kwallpapers.com/images/wallpapers/your-name-shooting-3840x2160-14938.jpg",
-    },
-    {
-      image:
-        "https://app.requestly.io/delay/1000/https://nextui.org/images/fruit-4.jpeg",
-    },
   ],
+  github_link: "",
 };
 
 export const cards = [

@@ -4,4 +4,5 @@ export interface FeatureProps {
   images: Array<{
     image: string;
   }>;
+  github_link: string;
 }
