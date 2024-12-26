@@ -193,6 +193,20 @@ export default function Home() {
                 things easier. Give it a try and see how it can help you take
                 control of your diet and health!
               </h5>
+              <div className="col-span-full h-full  items-end ">
+                <Button
+                  variant="shadow"
+                  radius="lg"
+                  className="from-slate-500 to-slate-400 bg-gradient-to-r text-white"
+                >
+                  <Link
+                    className="text-white"
+                    href="https://safebite-kmpq.vercel.app/"
+                  >
+                    Demo
+                  </Link>
+                </Button>
+              </div>
               <div className="col-span-full h-full  items-end hidden">
                 <div className=" grid grid-cols-2 h-20 ">
                   <div className="col-span-1 flex justify-center items-center">
